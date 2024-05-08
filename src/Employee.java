@@ -9,15 +9,13 @@ public class Employee {
     private int id;
     private static Integer idCounter = 1;
 
-
-
-    public void Employee (String firstName, String middleName,
-                     String lastName, int department,double salary,int id) {
-        this.firstName=firstName;
-        this.middleName=middleName;
-        this.lastname=lastName;
-        this.department=department;
-        this.salary=salary;
+    public Employee (String firstName, String middleName,
+                         String lastName, int department, double salary) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastname = lastName;
+        this.department = department;
+        this.salary = salary;
         this.id = idCounter++;
     }
 
@@ -61,16 +59,23 @@ public class Employee {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    public int hashCode(){
-        return Objects.hash (firstName,middleName,lastname,department,salary);
+
+    public int hashCode() {
+        return Objects.hash(firstName, middleName, lastname, department, salary);
     }
+
     public boolean equals(Object a) {
         if (this == a) return true;
         if (a == null || getClass() != a.getClass()) return false;
         Employee employee = (Employee) a;
-        return Objects.equals(firstName,employee.firstName) && Objects.equals(middleName, employee.middleName) &&
-                Objects.equals(lastname, employee.lastname) && department==employee.department
-                && salary==employee.salary && id== employee.id;
+        return Objects.equals(firstName, employee.firstName) && Objects.equals(middleName, employee.middleName) &&
+                Objects.equals(lastname, employee.lastname) && department == employee.department
+                && salary == employee.salary && id == employee.id;
+    }
+
+    public String toString() {
+        return String.format("ИН: %s, ФИО: %s %s %s, отдел: %s, заработная плата: %.2f руб.",
+                id, firstName, middleName, lastname, department, salary);
     }
 
 

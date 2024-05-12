@@ -9,8 +9,8 @@ public class Employee {
     private int id;
     private static Integer idCounter = 1;
 
-    public Employee (String firstName, String middleName,
-                         String lastName, int department, double salary) {
+    public Employee(String firstName, String middleName,
+                    String lastName, int department, double salary) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastname = lastName;
@@ -18,12 +18,9 @@ public class Employee {
         this.salary = salary;
         this.id = idCounter++;
     }
-
-
     public double getSalary() {
         return salary;
     }
-
     public void setSalary(double salary) {
         this.salary = salary;
     }
@@ -40,24 +37,11 @@ public class Employee {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     public String getMiddleName() {
         return middleName;
     }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public int hashCode() {
@@ -72,16 +56,13 @@ public class Employee {
                 Objects.equals(lastname, employee.lastname) && department == employee.department
                 && salary == employee.salary && id == employee.id;
     }
-
     public String toString() {
         return String.format("ИН: %s, ФИО: %s %s %s, отдел: %s, заработная плата: %.2f руб.",
                 id, firstName, middleName, lastname, department, salary);
     }
-
-
+    public String printPersonWithOutDepartment() {
+        return String.format("ИН: %s, ФИО: %s %s %s, заработная плата: %.2f руб.",
+                id, firstName, middleName, lastname, salary);
+    }
 }
-
-
-
-
 
